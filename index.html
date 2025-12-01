@@ -3,74 +3,240 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>船橋のいいところ</title>
-    <link rel="stylesheet" href="aaaaaa.css">
+   <!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>超・船橋市のいいところ</title>
+<style>
+    /* ベースのスタイル */
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Helvetica Neue', Arial, sans-serif;
+        color: white;
+        overflow-x: hidden; /* 横スクロール防止 */
+        
+        /* 超高速レインボー背景 */
+        background: linear-gradient(45deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8f00ff);
+        background-size: 400% 400%;
+        animation: rainbowParty 3s ease infinite; /* 10sから3sに高速化 */
+    }
+
+    /* 背景のアニメーション定義 */
+    @keyframes rainbowParty {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+
+    /* コンテンツ全体を包むコンテナ */
+    .container {
+        position: relative;
+        z-index: 10; /* 梨より手前に表示 */
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 40px 20px;
+        text-align: center;
+        background-color: rgba(0, 0, 0, 0.6); /* 文字を読みやすくする半透明黒 */
+        backdrop-filter: blur(5px);
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        box-shadow: 0 0 50px rgba(0,0,0,0.8);
+    }
+
+    /* 派手なタイトル */
+    h1 {
+        font-size: 4rem;
+        margin-bottom: 20px;
+        color: #fff;
+        text-transform: uppercase;
+        /* ネオンサイン風の光彩 */
+        text-shadow: 
+            0 0 5px #fff,
+            0 0 10px #fff,
+            0 0 20px #ff00de,
+            0 0 40px #ff00de,
+            0 0 80px #ff00de;
+        animation: neonFlicker 1.5s infinite alternate;
+    }
+
+    @keyframes neonFlicker {
+        0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+            text-shadow: 
+                0 0 5px #fff,
+                0 0 10px #fff,
+                0 0 20px #ff00de,
+                0 0 40px #ff00de,
+                0 0 80px #ff00de;
+        }
+        20%, 24%, 55% {
+            text-shadow: none; /* 一瞬消える演出 */
+            color: #333;
+        }
+    }
+
+    /* セクション見出し */
+    h2 {
+        font-size: 2.5rem;
+        border-bottom: 3px dashed yellow;
+        display: inline-block;
+        padding-bottom: 10px;
+        margin-top: 40px;
+        text-shadow: 3px 3px 0 #000;
+    }
+
+    /* カードスタイル */
+    .card {
+        background: rgba(255, 255, 255, 0.1);
+        border: 2px solid #fff;
+        border-radius: 15px;
+        padding: 20px;
+        margin: 30px 0;
+        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        position: relative;
+        overflow: hidden;
+    }
+
+    /* ホバー時の派手な動き */
+    .card:hover {
+        transform: scale(1.1) rotate(2deg);
+        background: rgba(255, 255, 255, 0.2);
+        box-shadow: 0 0 30px yellow, 0 0 60px orange;
+        border-color: yellow;
+    }
+
+    .card h3 {
+        font-size: 1.8rem;
+        margin: 0;
+        color: #00ffff;
+        text-shadow: 2px 2px 0 #000;
+    }
+
+    .spot-desc {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        font-weight: bold;
+    }
+
+    /* 流れる文字（マーキー） */
+    .marquee-container {
+        background: black;
+        color: yellow;
+        padding: 10px 0;
+        font-weight: bold;
+        font-size: 1.2rem;
+        border-top: 2px solid white;
+        border-bottom: 2px solid white;
+        overflow: hidden;
+        white-space: nowrap;
+        margin-bottom: 20px;
+    }
+    .marquee-text {
+        display: inline-block;
+        padding-left: 100%;
+        animation: marquee 10s linear infinite;
+    }
+    @keyframes marquee {
+        0% { transform: translate(0, 0); }
+        100% { transform: translate(-100%, 0); }
+    }
+
+    /* 降ってくる梨のスタイル */
+    .falling-pear {
+        position: fixed;
+        top: -50px;
+        font-size: 2rem;
+        user-select: none;
+        pointer-events: none; /* クリック邪魔しない */
+        z-index: 1;
+        animation: fall linear forwards;
+    }
+
+    @keyframes fall {
+        to { transform: translateY(110vh) rotate(360deg); }
+    }
+
+</style>
 </head>
 <body>
-    <h1>船橋市のいいところ</h1>
-    <p>1. 全国的にも有名なレジャースポット
-船橋といえば、まずはここを外せません。
 
-ふなばしアンデルセン公園
+    <div class="marquee-container">
+        <div class="marquee-text">
+            ようこそ船橋へ！ 千葉県最強の都市！ ららぽーと！ IKEA！ アンデルセン公園！ 梨！ 梨！ 梨！
+        </div>
+    </div>
 
-特徴: トリップアドバイザーの「日本のテーマパークランキング」で、ディズニーやUSJに次ぐ上位にランクインしたこともある実力派です。
+    <div class="container">
+        <h1>NEO<br>FUNABASHI</h1>
+        <p>ここは覚醒した船橋紹介サイトです</p>
 
-魅力: 巨大なアスレチック、美しい花畑、動物とのふれあい広場などがあり、入園料が手頃（大人900円程度）で一日中遊べます。特にお子様連れやデートに最高です。
+        <h2>★ レジャースポット ★</h2>
+        
+        <div class="card">
+            <h3>🏰 ふなばしアンデルセン公園</h3>
+            <p class="spot-desc">
+                USJ超えの奇跡！<br>
+                大人も子供も一日中遊べる最強コスパ遊園地。<br>
+                アスレチックの規模が異常。
+            </p>
+        </div>
 
-ふなばし三番瀬海浜公園
+        <div class="card">
+            <h3>🐚 ふなばし三番瀬海浜公園</h3>
+            <p class="spot-desc">
+                都心から最速の潮干狩り！<br>
+                夕日がエモい。BBQもできる。<br>
+                海を感じろ。
+            </p>
+        </div>
 
-特徴: 都心から一番近い潮干狩り場として有名です。
+        <h2>★ 爆買いエリア ★</h2>
 
-魅力: 潮干狩り（春〜夏）だけでなく、BBQエリアや野鳥観察も楽しめます。海に沈む夕日がとても綺麗です。
+        <div class="card">
+            <h3>🛍️ ららぽーとTOKYO-BAY</h3>
+            <p class="spot-desc">
+                伝説の1号店。<br>
+                広すぎて迷子になるダンジョン。<br>
+                ここに来れば全てが揃う。
+            </p>
+        </div>
 
-2. 圧倒的なショッピング環境（南船橋エリア）
-「ららぽーと」発祥の地であり、買い物の選択肢は千葉県内でもトップクラスです。
+        <div class="card">
+            <h3>🇸🇪 IKEA Tokyo-Bay</h3>
+            <p class="spot-desc">
+                家具の迷宮。<br>
+                ホットドッグとソフトクリームが激安。<br>
+                スウェーデンの風を感じろ。
+            </p>
+        </div>
 
-ららぽーとTOKYO-BAY
+    </div>
 
-店舗数が約440店と国内最大級。服、雑貨、映画館、グルメまで全て揃います。広すぎて迷子になるレベルです。
+    <script>
+        function createPear() {
+            const pear = document.createElement('div');
+            pear.classList.add('falling-pear');
+            pear.innerText = '🍐';
+            
+            // ランダムな位置とサイズ
+            pear.style.left = Math.random() * 100 + 'vw';
+            pear.style.fontSize = (Math.random() * 2 + 1) + 'rem';
+            
+            // アニメーション時間もランダムに（速さを変える）
+            const duration = Math.random() * 3 + 2; 
+            pear.style.animationDuration = duration + 's';
 
-IKEA Tokyo-Bay
+            document.body.appendChild(pear);
 
-ららぽーとのすぐ近くにあります。家具だけでなく、レストランでのスウェーデン料理も人気です。
-
-    </head>
-<body>
-    
-    <h1>ようこそ！</h1>
-    <p>ここが派手になったサイトです</p>
-
-</body></p>
-
-</body
-</style>/* green and pink */
-            background: linear-gradient(45deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8f00ff);
-            background-size: 400% 400%;
-            animation: rainbowParty 10s ease infinite;
-            color: white;
-            font-family: sans-serif;
-            height: 100vh;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column; /* これを追加すると文字が縦に並びやすくなります */
+            // アニメーション終わったら消す（メモリ節約）
+            setTimeout(() => {
+                pear.remove();
+            }, duration * 1000);
         }
 
-        /* アニメーション定義 */
-        @keyframes rainbowParty {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        /* 文字も派手に縁取る */
-        h1 {
-            font-size: 3rem;
-            text-shadow: 3px 3px 0px #000, 
-                         -1px -1px 0 #000,  
-                         1px -1px 0 #000,
-                         -1px 1px 0 #000,
-                         1px 1px 0 #000;
-        }
-    </style></html>
+        // 0.3秒ごとに梨を生成
+        setInterval(createPear, 300);
+    </script>
+</body>
+</html>
