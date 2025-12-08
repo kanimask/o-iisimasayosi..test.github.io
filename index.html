@@ -1,11 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <!DOCTYPE html>
-<html lang="ja">
-<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>超・船橋市のいいところ</title>
@@ -16,42 +11,49 @@
         padding: 0;
         font-family: 'Helvetica Neue', Arial, sans-serif;
         color: white;
-        overflow-x: hidden; /* 横スクロール防止 */
+        overflow-x: hidden;
         
         /* 超高速レインボー背景 */
         background: linear-gradient(45deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8f00ff);
         background-size: 400% 400%;
-        animation: rainbowParty 3s ease infinite; /* 10sから3sに高速化 */
+        animation: rainbowParty 3s ease infinite;
+        
+        /* 中央揃え用 */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 100vh;
     }
 
-    /* 背景のアニメーション定義 */
     @keyframes rainbowParty {
         0% { background-position: 0% 50%; }
         50% { background-position: 100% 50%; }
         100% { background-position: 0% 50%; }
     }
 
-    /* コンテンツ全体を包むコンテナ */
+    /* コンテンツ全体 */
     .container {
         position: relative;
-        z-index: 10; /* 梨より手前に表示 */
+        z-index: 10;
         max-width: 800px;
-        margin: 0 auto;
+        width: 90%; /* スマホ対応 */
+        margin: 20px auto;
         padding: 40px 20px;
         text-align: center;
-        background-color: rgba(0, 0, 0, 0.6); /* 文字を読みやすくする半透明黒 */
+        background-color: rgba(0, 0, 0, 0.6);
         backdrop-filter: blur(5px);
         border: 2px solid rgba(255, 255, 255, 0.3);
         box-shadow: 0 0 50px rgba(0,0,0,0.8);
+        border-radius: 20px;
     }
 
-    /* 派手なタイトル */
+    /* タイトル */
     h1 {
-        font-size: 4rem;
+        font-size: 4rem; /* 基本サイズ */
         margin-bottom: 20px;
         color: #fff;
         text-transform: uppercase;
-        /* ネオンサイン風の光彩 */
+        line-height: 1;
         text-shadow: 
             0 0 5px #fff,
             0 0 10px #fff,
@@ -61,22 +63,24 @@
         animation: neonFlicker 1.5s infinite alternate;
     }
 
+    /* スマホなどでタイトルが大きすぎないように調整 */
+    @media (max-width: 600px) {
+        h1 { font-size: 2.5rem; }
+    }
+
     @keyframes neonFlicker {
         0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
             text-shadow: 
                 0 0 5px #fff,
-                0 0 10px #fff,
                 0 0 20px #ff00de,
-                0 0 40px #ff00de,
-                0 0 80px #ff00de;
+                0 0 40px #ff00de;
         }
         20%, 24%, 55% {
-            text-shadow: none; /* 一瞬消える演出 */
+            text-shadow: none;
             color: #333;
         }
     }
 
-    /* セクション見出し */
     h2 {
         font-size: 2.5rem;
         border-bottom: 3px dashed yellow;
@@ -98,19 +102,30 @@
         overflow: hidden;
     }
 
-    /* ホバー時の派手な動き */
     .card:hover {
-        transform: scale(1.1) rotate(2deg);
+        transform: scale(1.05) rotate(1deg);
         background: rgba(255, 255, 255, 0.2);
         box-shadow: 0 0 30px yellow, 0 0 60px orange;
         border-color: yellow;
+        z-index: 20;
     }
 
     .card h3 {
         font-size: 1.8rem;
-        margin: 0;
+        margin-bottom: 15px;
         color: #00ffff;
         text-shadow: 2px 2px 0 #000;
+    }
+
+    /* ★★★ 画像用の追加CSS ★★★ */
+    .card-image {
+        width: 100%;             /* 横幅いっぱいに */
+        height: 200px;           /* 高さを統一 */
+        object-fit: cover;       /* トリミングして枠に合わせる */
+        border-radius: 10px;     /* 角を丸く */
+        border: 2px solid white; /* 白枠をつける */
+        margin-bottom: 15px;     /* 下の文字との隙間 */
+        box-shadow: 0 5px 15px rgba(0,0,0,0.5);
     }
 
     .spot-desc {
@@ -119,8 +134,9 @@
         font-weight: bold;
     }
 
-    /* 流れる文字（マーキー） */
+    /* マーキー（流れる文字） */
     .marquee-container {
+        width: 100%;
         background: black;
         color: yellow;
         padding: 10px 0;
@@ -131,6 +147,9 @@
         overflow: hidden;
         white-space: nowrap;
         margin-bottom: 20px;
+        position: sticky;
+        top: 0;
+        z-index: 100;
     }
     .marquee-text {
         display: inline-block;
@@ -142,21 +161,18 @@
         100% { transform: translate(-100%, 0); }
     }
 
-    /* 降ってくる梨のスタイル */
+    /* 降ってくる梨 */
     .falling-pear {
         position: fixed;
         top: -50px;
-        font-size: 2rem;
         user-select: none;
-        pointer-events: none; /* クリック邪魔しない */
+        pointer-events: none;
         z-index: 1;
         animation: fall linear forwards;
     }
-
     @keyframes fall {
         to { transform: translateY(110vh) rotate(360deg); }
     }
-
 </style>
 </head>
 <body>
@@ -175,6 +191,7 @@
         
         <div class="card">
             <h3>🏰 ふなばしアンデルセン公園</h3>
+            <img src="https://placehold.co/600x400/orange/white?text=Andersen+Park" alt="アンデルセン公園" class="card-image">
             <p class="spot-desc">
                 USJ超えの奇跡！<br>
                 大人も子供も一日中遊べる最強コスパ遊園地。<br>
@@ -184,6 +201,7 @@
 
         <div class="card">
             <h3>🐚 ふなばし三番瀬海浜公園</h3>
+            <img src="https://placehold.co/600x400/blue/white?text=Sanbanze+Park" alt="三番瀬海浜公園" class="card-image">
             <p class="spot-desc">
                 都心から最速の潮干狩り！<br>
                 夕日がエモい。BBQもできる。<br>
@@ -195,6 +213,7 @@
 
         <div class="card">
             <h3>🛍️ ららぽーとTOKYO-BAY</h3>
+            <img src="https://placehold.co/600x400/red/white?text=Lalaport" alt="ららぽーと" class="card-image">
             <p class="spot-desc">
                 伝説の1号店。<br>
                 広すぎて迷子になるダンジョン。<br>
@@ -204,6 +223,7 @@
 
         <div class="card">
             <h3>🇸🇪 IKEA Tokyo-Bay</h3>
+            <img src="https://placehold.co/600x400/yellow/blue?text=IKEA" alt="IKEA" class="card-image">
             <p class="spot-desc">
                 家具の迷宮。<br>
                 ホットドッグとソフトクリームが激安。<br>
@@ -223,13 +243,13 @@
             pear.style.left = Math.random() * 100 + 'vw';
             pear.style.fontSize = (Math.random() * 2 + 1) + 'rem';
             
-            // アニメーション時間もランダムに（速さを変える）
+            // アニメーション時間もランダムに
             const duration = Math.random() * 3 + 2; 
             pear.style.animationDuration = duration + 's';
 
             document.body.appendChild(pear);
 
-            // アニメーション終わったら消す（メモリ節約）
+            // アニメーション終わったら消す
             setTimeout(() => {
                 pear.remove();
             }, duration * 1000);
